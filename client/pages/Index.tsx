@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -37,6 +37,15 @@ const propertyImages = [
 
 export default function Index() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Auto-cycle through images every 4 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % propertyImages.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
   const [contactForm, setContactForm] = useState({
     name: "",
     email: "",
@@ -63,43 +72,8 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Apple-style Navigation */}
-      <nav className="apple-glass fixed top-0 left-0 right-0 z-50 border-b border-apple-gray-200">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex justify-between items-center h-16">
-            <h1 className="text-xl font-semibold apple-text-display text-black">
-              Estate
-            </h1>
-            <div className="flex items-center space-x-2">
-              <Button
-                variant="ghost"
-                size="sm"
-                className="rounded-full h-9 px-4 text-sm font-medium"
-              >
-                <Heart className="h-4 w-4 mr-1.5" />
-                Save
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="rounded-full h-9 px-4 text-sm font-medium"
-              >
-                <Share2 className="h-4 w-4 mr-1.5" />
-                Share
-              </Button>
-              <Button
-                size="sm"
-                className="rounded-full h-9 px-4 bg-apple-blue hover:bg-apple-blue-dark text-white text-sm font-medium"
-              >
-                Schedule Tour
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
-
       {/* Hero Section */}
-      <section className="pt-16">
+      <section>
         <div className="relative h-[85vh] overflow-hidden rounded-none">
           <img
             src={propertyImages[currentImageIndex]}
@@ -136,19 +110,6 @@ export default function Index() {
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent pt-32">
             <div className="max-w-6xl mx-auto px-6 pb-12">
               <div className="max-w-2xl">
-                <div className="flex items-center gap-3 mb-4">
-                  <Badge className="rounded-full bg-white/20 text-white border-0 px-3 py-1 text-sm font-medium">
-                    For Sale
-                  </Badge>
-                  <div className="flex items-center">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="h-4 w-4 fill-yellow-400 text-yellow-400"
-                      />
-                    ))}
-                  </div>
-                </div>
                 <h1 className="text-5xl font-bold apple-text-display text-white mb-3 leading-tight">
                   Modern Villa
                 </h1>
