@@ -470,6 +470,43 @@ export default function Index() {
           </div>
         </div>
       </main>
+
+      {/* Gallery Modal */}
+      {isGalleryOpen && (
+        <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center">
+          <div className="relative w-full h-full max-w-4xl mx-auto p-6">
+            {/* Close Button */}
+            <button
+              onClick={() => setIsGalleryOpen(false)}
+              className="absolute top-6 right-6 z-10 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm flex items-center justify-center transition-all"
+            >
+              <X className="h-5 w-5 text-white" />
+            </button>
+
+            {/* Gallery Grid */}
+            <div className="h-full overflow-y-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-16 pb-6">
+                {propertyImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-200"
+                    onClick={() => {
+                      setCurrentImageIndex(index);
+                      setIsGalleryOpen(false);
+                    }}
+                  >
+                    <img
+                      src={image}
+                      alt={`Property view ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
