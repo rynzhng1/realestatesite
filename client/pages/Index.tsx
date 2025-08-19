@@ -1,16 +1,22 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { 
-  MapPin, 
-  Bed, 
-  Bath, 
-  Square, 
-  Car, 
+import {
+  MapPin,
+  Bed,
+  Bath,
+  Square,
+  Car,
   Heart,
   Share2,
   Calendar,
@@ -18,7 +24,7 @@ import {
   Mail,
   ChevronLeft,
   ChevronRight,
-  Star
+  Star,
 } from "lucide-react";
 
 const propertyImages = [
@@ -43,7 +49,9 @@ export default function Index() {
   };
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + propertyImages.length) % propertyImages.length);
+    setCurrentImageIndex(
+      (prev) => (prev - 1 + propertyImages.length) % propertyImages.length,
+    );
   };
 
   const handleContactSubmit = (e: React.FormEvent) => {
@@ -59,17 +67,30 @@ export default function Index() {
       <nav className="apple-glass fixed top-0 left-0 right-0 z-50 border-b border-apple-gray-200">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex justify-between items-center h-16">
-            <h1 className="text-xl font-semibold apple-text-display text-black">Estate</h1>
+            <h1 className="text-xl font-semibold apple-text-display text-black">
+              Estate
+            </h1>
             <div className="flex items-center space-x-2">
-              <Button variant="ghost" size="sm" className="rounded-full h-9 px-4 text-sm font-medium">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="rounded-full h-9 px-4 text-sm font-medium"
+              >
                 <Heart className="h-4 w-4 mr-1.5" />
                 Save
               </Button>
-              <Button variant="ghost" size="sm" className="rounded-full h-9 px-4 text-sm font-medium">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="rounded-full h-9 px-4 text-sm font-medium"
+              >
                 <Share2 className="h-4 w-4 mr-1.5" />
                 Share
               </Button>
-              <Button size="sm" className="rounded-full h-9 px-4 bg-apple-blue hover:bg-apple-blue-dark text-white text-sm font-medium">
+              <Button
+                size="sm"
+                className="rounded-full h-9 px-4 bg-apple-blue hover:bg-apple-blue-dark text-white text-sm font-medium"
+              >
                 Schedule Tour
               </Button>
             </div>
@@ -85,7 +106,7 @@ export default function Index() {
             alt={`Property view ${currentImageIndex + 1}`}
             className="w-full h-full object-cover"
           />
-          
+
           {/* Minimal Gallery Navigation */}
           <Button
             variant="ghost"
@@ -121,7 +142,10 @@ export default function Index() {
                   </Badge>
                   <div className="flex items-center">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                      <Star
+                        key={i}
+                        className="h-4 w-4 fill-yellow-400 text-yellow-400"
+                      />
                     ))}
                   </div>
                 </div>
@@ -192,14 +216,16 @@ export default function Index() {
               </h2>
               <div className="space-y-6 apple-text-body text-apple-gray-700 leading-relaxed">
                 <p>
-                  Experience luxury living in this stunning modern villa that seamlessly blends 
-                  contemporary architecture with timeless elegance. Every detail has been carefully 
-                  crafted to create an atmosphere of sophistication and comfort.
+                  Experience luxury living in this stunning modern villa that
+                  seamlessly blends contemporary architecture with timeless
+                  elegance. Every detail has been carefully crafted to create an
+                  atmosphere of sophistication and comfort.
                 </p>
                 <p>
-                  The open-concept design features floor-to-ceiling windows that flood the space 
-                  with natural light, premium finishes throughout, and a gourmet kitchen equipped 
-                  with state-of-the-art appliances.
+                  The open-concept design features floor-to-ceiling windows that
+                  flood the space with natural light, premium finishes
+                  throughout, and a gourmet kitchen equipped with
+                  state-of-the-art appliances.
                 </p>
               </div>
             </div>
@@ -211,7 +237,9 @@ export default function Index() {
               </h2>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="font-semibold apple-text-display text-black mb-4">Interior</h3>
+                  <h3 className="font-semibold apple-text-display text-black mb-4">
+                    Interior
+                  </h3>
                   <ul className="space-y-3 apple-text-body text-apple-gray-700">
                     <li className="flex items-center">
                       <div className="w-2 h-2 bg-apple-blue rounded-full mr-3"></div>
@@ -232,7 +260,9 @@ export default function Index() {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="font-semibold apple-text-display text-black mb-4">Exterior</h3>
+                  <h3 className="font-semibold apple-text-display text-black mb-4">
+                    Exterior
+                  </h3>
                   <ul className="space-y-3 apple-text-body text-apple-gray-700">
                     <li className="flex items-center">
                       <div className="w-2 h-2 bg-apple-blue rounded-full mr-3"></div>
@@ -261,9 +291,10 @@ export default function Index() {
                 Location
               </h2>
               <p className="apple-text-body text-apple-gray-700 leading-relaxed mb-6">
-                Nestled in prestigious Beverly Hills, this property offers unparalleled access to 
-                world-class dining, shopping, and entertainment. The neighborhood is renowned for 
-                its tree-lined streets and luxury amenities.
+                Nestled in prestigious Beverly Hills, this property offers
+                unparalleled access to world-class dining, shopping, and
+                entertainment. The neighborhood is renowned for its tree-lined
+                streets and luxury amenities.
               </p>
               <div className="bg-apple-gray-50 rounded-2xl p-8 text-center">
                 <div className="text-apple-gray-500 apple-text-body">
@@ -283,10 +314,13 @@ export default function Index() {
               <p className="apple-text-body text-apple-gray-600 mb-8">
                 Schedule a viewing or ask questions about this property
               </p>
-              
+
               <form onSubmit={handleContactSubmit} className="space-y-6">
                 <div>
-                  <Label htmlFor="name" className="apple-text-body font-medium text-black">
+                  <Label
+                    htmlFor="name"
+                    className="apple-text-body font-medium text-black"
+                  >
                     Name
                   </Label>
                   <Input
@@ -302,7 +336,10 @@ export default function Index() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="email" className="apple-text-body font-medium text-black">
+                  <Label
+                    htmlFor="email"
+                    className="apple-text-body font-medium text-black"
+                  >
                     Email
                   </Label>
                   <Input
@@ -318,7 +355,10 @@ export default function Index() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="phone" className="apple-text-body font-medium text-black">
+                  <Label
+                    htmlFor="phone"
+                    className="apple-text-body font-medium text-black"
+                  >
                     Phone
                   </Label>
                   <Input
@@ -333,7 +373,10 @@ export default function Index() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="message" className="apple-text-body font-medium text-black">
+                  <Label
+                    htmlFor="message"
+                    className="apple-text-body font-medium text-black"
+                  >
                     Message
                   </Label>
                   <Textarea
@@ -342,14 +385,17 @@ export default function Index() {
                     rows={4}
                     value={contactForm.message}
                     onChange={(e) =>
-                      setContactForm({ ...contactForm, message: e.target.value })
+                      setContactForm({
+                        ...contactForm,
+                        message: e.target.value,
+                      })
                     }
                     className="mt-2 rounded-2xl border-apple-gray-300 focus:border-apple-blue focus:ring-apple-blue p-4 apple-text-body resize-none"
                     required
                   />
                 </div>
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   className="w-full h-12 rounded-2xl bg-apple-blue hover:bg-apple-blue-dark text-white font-medium apple-text-body"
                 >
                   Send Message
@@ -367,8 +413,12 @@ export default function Index() {
                   <span className="text-2xl">👩‍💼</span>
                 </div>
                 <div>
-                  <h3 className="font-semibold apple-text-display text-black">Sarah Johnson</h3>
-                  <p className="apple-text-body text-apple-gray-600">Real Estate Specialist</p>
+                  <h3 className="font-semibold apple-text-display text-black">
+                    Sarah Johnson
+                  </h3>
+                  <p className="apple-text-body text-apple-gray-600">
+                    Real Estate Specialist
+                  </p>
                 </div>
               </div>
               <div className="space-y-3 mb-6">
@@ -381,8 +431,8 @@ export default function Index() {
                   sarah@estate.com
                 </div>
               </div>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 className="w-full h-12 rounded-2xl border-apple-gray-300 hover:bg-apple-gray-50 apple-text-body font-medium"
               >
                 View Profile
