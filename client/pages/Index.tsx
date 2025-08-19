@@ -304,22 +304,18 @@ export default function Index() {
                 </div>
               </div>
 
-              <Button className="w-full mt-4 h-10 rounded-2xl bg-apple-blue hover:bg-apple-blue-dark text-white font-medium apple-text-body text-sm">
-                <Calendar className="h-4 w-4 mr-2" />
-                Add to Calendar
-              </Button>
             </div>
 
             {/* Contact Form */}
-            <div className="bg-white rounded-3xl apple-shadow-lg p-8">
-              <h2 className="text-2xl font-semibold apple-text-display text-black mb-2">
+            <div className="bg-white rounded-3xl apple-shadow-lg p-6">
+              <h2 className="text-xl font-semibold apple-text-display text-black mb-2">
                 Get in touch
               </h2>
-              <p className="apple-text-body text-apple-gray-600 mb-8">
+              <p className="apple-text-body text-apple-gray-600 mb-6">
                 Schedule a viewing or ask questions about this property
               </p>
 
-              <form onSubmit={handleContactSubmit} className="space-y-6">
+              <form onSubmit={handleContactSubmit} className="space-y-4">
                 <div>
                   <Label
                     htmlFor="name"
