@@ -166,6 +166,14 @@ export default function Index() {
                   />
                 </button>
               ))}
+
+              {/* Gallery Button */}
+              <button
+                onClick={() => setIsGalleryOpen(true)}
+                className="flex-shrink-0 w-16 h-16 rounded-2xl bg-white border-2 border-apple-gray-300 hover:border-apple-blue transition-all duration-200 flex items-center justify-center"
+              >
+                <Grid className="h-6 w-6 text-apple-gray-600" />
+              </button>
             </div>
           </div>
         </div>
