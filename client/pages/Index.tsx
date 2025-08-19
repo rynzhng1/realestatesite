@@ -391,54 +391,6 @@ export default function Index() {
           </div>
         </div>
       </main>
-
-      {/* Minimal Footer */}
-      <footer className="bg-apple-gray-50 py-16">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-xl font-semibold apple-text-display text-black mb-4">Estate</h3>
-              <p className="apple-text-body text-apple-gray-600 leading-relaxed">
-                Premium real estate in the world's most desirable locations.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold apple-text-display text-black mb-4">Services</h4>
-              <ul className="space-y-2 apple-text-body text-apple-gray-600">
-                <li>Buy</li>
-                <li>Sell</li>
-                <li>Rent</li>
-                <li>Invest</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold apple-text-display text-black mb-4">Contact</h4>
-              <ul className="space-y-2 apple-text-body text-apple-gray-600">
-                <li>(555) 123-4567</li>
-                <li>hello@estate.com</li>
-                <li>Beverly Hills, CA</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold apple-text-display text-black mb-4">Follow</h4>
-              <div className="flex space-x-4">
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  className="apple-text-body text-apple-gray-600 hover:text-black rounded-full"
-                >
-                  Instagram
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-apple-gray-200 mt-12 pt-8 text-center">
-            <p className="apple-text-body text-apple-gray-500">
-              © 2024 Estate. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
