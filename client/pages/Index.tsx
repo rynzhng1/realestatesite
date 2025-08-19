@@ -306,6 +306,57 @@ export default function Index() {
 
           {/* Contact Sidebar */}
           <div className="space-y-8">
+            {/* Open House Schedule */}
+            <div className="bg-white rounded-3xl apple-shadow-lg p-8">
+              <h2 className="text-2xl font-semibold apple-text-display text-black mb-6">
+                Open House
+              </h2>
+              <div className="space-y-4">
+                <div className="bg-apple-blue/5 rounded-2xl p-6 border border-apple-blue/20">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center">
+                      <div className="w-3 h-3 bg-apple-blue rounded-full mr-3"></div>
+                      <span className="font-semibold apple-text-display text-black">Next Open House</span>
+                    </div>
+                    <Badge className="rounded-full bg-apple-blue text-white border-0 px-3 py-1 text-sm">
+                      This Weekend
+                    </Badge>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-lg font-semibold apple-text-display text-black">
+                      Saturday, January 20th
+                    </p>
+                    <p className="apple-text-body text-apple-gray-600">
+                      2:00 PM - 4:00 PM
+                    </p>
+                    <p className="apple-text-body text-apple-gray-600 text-sm">
+                      No appointment necessary
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-apple-gray-50 rounded-2xl p-6">
+                  <div className="flex items-center mb-3">
+                    <div className="w-3 h-3 bg-apple-gray-400 rounded-full mr-3"></div>
+                    <span className="font-semibold apple-text-display text-black">Upcoming</span>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="font-semibold apple-text-display text-black">
+                      Sunday, January 21st
+                    </p>
+                    <p className="apple-text-body text-apple-gray-600">
+                      1:00 PM - 3:00 PM
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <Button className="w-full mt-6 h-12 rounded-2xl bg-apple-blue hover:bg-apple-blue-dark text-white font-medium apple-text-body">
+                <Calendar className="h-4 w-4 mr-2" />
+                Add to Calendar
+              </Button>
+            </div>
+
             {/* Contact Form */}
             <div className="bg-white rounded-3xl apple-shadow-lg p-8">
               <h2 className="text-2xl font-semibold apple-text-display text-black mb-2">
