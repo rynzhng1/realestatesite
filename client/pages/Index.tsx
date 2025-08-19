@@ -322,14 +322,27 @@ export default function Index() {
 
             {/* Contact Form */}
             <div className="bg-white rounded-3xl apple-shadow-lg p-6">
-              <h2 className="text-xl font-semibold apple-text-display text-black mb-2">
-                Get in touch
-              </h2>
-              <p className="apple-text-body text-apple-gray-600 mb-6">
-                Schedule a viewing or ask questions about this property
-              </p>
+              <button
+                onClick={() => setIsContactExpanded(!isContactExpanded)}
+                className="w-full flex items-center justify-between text-left"
+              >
+                <h2 className="text-xl font-semibold apple-text-display text-black">
+                  Get in touch
+                </h2>
+                {isContactExpanded ? (
+                  <ChevronUp className="h-5 w-5 text-apple-gray-600" />
+                ) : (
+                  <ChevronDown className="h-5 w-5 text-apple-gray-600" />
+                )}
+              </button>
 
-              <form onSubmit={handleContactSubmit} className="space-y-4">
+              {isContactExpanded && (
+                <div className="mt-4">
+                  <p className="apple-text-body text-apple-gray-600 mb-6">
+                    Schedule a viewing or ask questions about this property
+                  </p>
+
+                  <form onSubmit={handleContactSubmit} className="space-y-4">
                 <div>
                   <Label
                     htmlFor="name"
@@ -414,7 +427,9 @@ export default function Index() {
                 >
                   Send Message
                 </Button>
-              </form>
+                  </form>
+                </div>
+              )}
             </div>
 
             {/* Agent Card */}
