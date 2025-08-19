@@ -290,7 +290,9 @@ export default function Index() {
                 <div className="bg-apple-blue/5 rounded-2xl p-4 border border-apple-blue/20">
                   <div className="flex items-center mb-2">
                     <div className="w-3 h-3 bg-apple-blue rounded-full mr-3"></div>
-                    <span className="font-semibold apple-text-display text-black">Next Open House</span>
+                    <span className="font-semibold apple-text-display text-black">
+                      Next Open House
+                    </span>
                   </div>
                   <div className="space-y-1">
                     <p className="font-semibold apple-text-display text-black">
@@ -305,7 +307,9 @@ export default function Index() {
                 <div className="bg-apple-gray-50 rounded-2xl p-4">
                   <div className="flex items-center mb-2">
                     <div className="w-3 h-3 bg-apple-gray-400 rounded-full mr-3"></div>
-                    <span className="font-semibold apple-text-display text-black">Upcoming</span>
+                    <span className="font-semibold apple-text-display text-black">
+                      Upcoming
+                    </span>
                   </div>
                   <div className="space-y-1">
                     <p className="font-semibold apple-text-display text-black">
@@ -317,7 +321,6 @@ export default function Index() {
                   </div>
                 </div>
               </div>
-
             </div>
 
             {/* Contact Form */}
@@ -338,7 +341,9 @@ export default function Index() {
 
               <div
                 className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                  isContactExpanded ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+                  isContactExpanded
+                    ? "max-h-[1000px] opacity-100"
+                    : "max-h-0 opacity-0"
                 }`}
               >
                 <div className="mt-4">
@@ -347,90 +352,99 @@ export default function Index() {
                   </p>
 
                   <form onSubmit={handleContactSubmit} className="space-y-4">
-                <div>
-                  <Label
-                    htmlFor="name"
-                    className="apple-text-body font-medium text-black"
-                  >
-                    Name
-                  </Label>
-                  <Input
-                    id="name"
-                    type="text"
-                    placeholder="Your full name"
-                    value={contactForm.name}
-                    onChange={(e) =>
-                      setContactForm({ ...contactForm, name: e.target.value })
-                    }
-                    className="mt-2 rounded-2xl border-apple-gray-300 focus:border-apple-blue focus:ring-apple-blue h-12 px-4 apple-text-body"
-                    required
-                  />
-                </div>
-                <div>
-                  <Label
-                    htmlFor="email"
-                    className="apple-text-body font-medium text-black"
-                  >
-                    Email
-                  </Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="your@email.com"
-                    value={contactForm.email}
-                    onChange={(e) =>
-                      setContactForm({ ...contactForm, email: e.target.value })
-                    }
-                    className="mt-2 rounded-2xl border-apple-gray-300 focus:border-apple-blue focus:ring-apple-blue h-12 px-4 apple-text-body"
-                    required
-                  />
-                </div>
-                <div>
-                  <Label
-                    htmlFor="phone"
-                    className="apple-text-body font-medium text-black"
-                  >
-                    Phone
-                  </Label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    placeholder="(555) 123-4567"
-                    value={contactForm.phone}
-                    onChange={(e) =>
-                      setContactForm({ ...contactForm, phone: e.target.value })
-                    }
-                    className="mt-2 rounded-2xl border-apple-gray-300 focus:border-apple-blue focus:ring-apple-blue h-12 px-4 apple-text-body"
-                  />
-                </div>
-                <div>
-                  <Label
-                    htmlFor="message"
-                    className="apple-text-body font-medium text-black"
-                  >
-                    Message
-                  </Label>
-                  <Textarea
-                    id="message"
-                    placeholder="I'm interested in this property..."
-                    rows={4}
-                    value={contactForm.message}
-                    onChange={(e) =>
-                      setContactForm({
-                        ...contactForm,
-                        message: e.target.value,
-                      })
-                    }
-                    className="mt-2 rounded-2xl border-apple-gray-300 focus:border-apple-blue focus:ring-apple-blue p-4 apple-text-body resize-none"
-                    required
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  className="w-full h-12 rounded-2xl bg-apple-blue hover:bg-apple-blue-dark text-white font-medium apple-text-body"
-                >
-                  Send Message
-                </Button>
+                    <div>
+                      <Label
+                        htmlFor="name"
+                        className="apple-text-body font-medium text-black"
+                      >
+                        Name
+                      </Label>
+                      <Input
+                        id="name"
+                        type="text"
+                        placeholder="Your full name"
+                        value={contactForm.name}
+                        onChange={(e) =>
+                          setContactForm({
+                            ...contactForm,
+                            name: e.target.value,
+                          })
+                        }
+                        className="mt-2 rounded-2xl border-apple-gray-300 focus:border-apple-blue focus:ring-apple-blue h-12 px-4 apple-text-body"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <Label
+                        htmlFor="email"
+                        className="apple-text-body font-medium text-black"
+                      >
+                        Email
+                      </Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="your@email.com"
+                        value={contactForm.email}
+                        onChange={(e) =>
+                          setContactForm({
+                            ...contactForm,
+                            email: e.target.value,
+                          })
+                        }
+                        className="mt-2 rounded-2xl border-apple-gray-300 focus:border-apple-blue focus:ring-apple-blue h-12 px-4 apple-text-body"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <Label
+                        htmlFor="phone"
+                        className="apple-text-body font-medium text-black"
+                      >
+                        Phone
+                      </Label>
+                      <Input
+                        id="phone"
+                        type="tel"
+                        placeholder="(555) 123-4567"
+                        value={contactForm.phone}
+                        onChange={(e) =>
+                          setContactForm({
+                            ...contactForm,
+                            phone: e.target.value,
+                          })
+                        }
+                        className="mt-2 rounded-2xl border-apple-gray-300 focus:border-apple-blue focus:ring-apple-blue h-12 px-4 apple-text-body"
+                      />
+                    </div>
+                    <div>
+                      <Label
+                        htmlFor="message"
+                        className="apple-text-body font-medium text-black"
+                      >
+                        Message
+                      </Label>
+                      <Textarea
+                        id="message"
+                        placeholder="I'm interested in this property..."
+                        rows={4}
+                        value={contactForm.message}
+                        onChange={(e) =>
+                          setContactForm({
+                            ...contactForm,
+                            message: e.target.value,
+                          })
+                        }
+                        className="mt-2 rounded-2xl border-apple-gray-300 focus:border-apple-blue focus:ring-apple-blue p-4 apple-text-body resize-none"
+                        required
+                      />
+                    </div>
+                    <Button
+                      type="submit"
+                      className="w-full h-12 rounded-2xl bg-apple-blue hover:bg-apple-blue-dark text-white font-medium apple-text-body"
+                    >
+                      Send Message
+                    </Button>
                   </form>
                 </div>
               </div>
