@@ -48,32 +48,28 @@ export default function Index() {
 
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
     console.log("Contact form submitted:", contactForm);
     alert("Thank you for your inquiry! We'll get back to you soon.");
     setContactForm({ name: "", email: "", phone: "", message: "" });
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Navigation */}
-      <nav className="bg-white/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-white">
+      {/* Apple-style Navigation */}
+      <nav className="apple-glass fixed top-0 left-0 right-0 z-50 border-b border-apple-gray-200">
+        <div className="max-w-6xl mx-auto px-6">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-brand-800">LuxeEstate</h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Button variant="ghost" size="sm">
-                <Heart className="h-4 w-4 mr-2" />
+            <h1 className="text-xl font-semibold apple-text-display text-black">Estate</h1>
+            <div className="flex items-center space-x-2">
+              <Button variant="ghost" size="sm" className="rounded-full h-9 px-4 text-sm font-medium">
+                <Heart className="h-4 w-4 mr-1.5" />
                 Save
               </Button>
-              <Button variant="ghost" size="sm">
-                <Share2 className="h-4 w-4 mr-2" />
+              <Button variant="ghost" size="sm" className="rounded-full h-9 px-4 text-sm font-medium">
+                <Share2 className="h-4 w-4 mr-1.5" />
                 Share
               </Button>
-              <Button size="sm">
-                <Calendar className="h-4 w-4 mr-2" />
+              <Button size="sm" className="rounded-full h-9 px-4 bg-apple-blue hover:bg-apple-blue-dark text-white text-sm font-medium">
                 Schedule Tour
               </Button>
             </div>
@@ -81,98 +77,95 @@ export default function Index() {
         </div>
       </nav>
 
-      {/* Hero Gallery Section */}
-      <section className="relative">
-        <div className="relative h-[70vh] overflow-hidden">
+      {/* Hero Section */}
+      <section className="pt-16">
+        <div className="relative h-[85vh] overflow-hidden rounded-none">
           <img
             src={propertyImages[currentImageIndex]}
             alt={`Property view ${currentImageIndex + 1}`}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/20" />
           
-          {/* Gallery Navigation */}
+          {/* Minimal Gallery Navigation */}
           <Button
-            variant="outline"
+            variant="ghost"
             size="icon"
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white"
+            className="absolute left-6 top-1/2 transform -translate-y-1/2 w-10 h-10 rounded-full apple-glass border-0 hover:bg-white/20"
             onClick={prevImage}
           >
-            <ChevronLeft className="h-4 w-4" />
+            <ChevronLeft className="h-5 w-5 text-white" />
           </Button>
           <Button
-            variant="outline"
+            variant="ghost"
             size="icon"
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white"
+            className="absolute right-6 top-1/2 transform -translate-y-1/2 w-10 h-10 rounded-full apple-glass border-0 hover:bg-white/20"
             onClick={nextImage}
           >
-            <ChevronRight className="h-4 w-4" />
+            <ChevronRight className="h-5 w-5 text-white" />
           </Button>
 
-          {/* Property Overview */}
-          <div className="absolute bottom-8 left-8 right-8">
-            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 max-w-2xl">
-              <div className="flex items-center gap-2 mb-2">
-                <Badge variant="secondary" className="bg-luxury-100 text-luxury-800">
-                  For Sale
-                </Badge>
-                <div className="flex items-center text-yellow-500">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-current" />
-                  ))}
-                </div>
-              </div>
-              <h1 className="text-3xl font-bold text-brand-900 mb-2">
-                Luxury Modern Villa
-              </h1>
-              <p className="text-brand-600 flex items-center mb-4">
-                <MapPin className="h-4 w-4 mr-1" />
-                123 Sunset Boulevard, Beverly Hills, CA 90210
-              </p>
-              <div className="text-4xl font-bold text-brand-900 mb-4">
-                $2,750,000
-              </div>
-              <div className="flex items-center gap-6 text-brand-600">
-                <div className="flex items-center">
-                  <Bed className="h-5 w-5 mr-1" />
-                  <span>4 Beds</span>
-                </div>
-                <div className="flex items-center">
-                  <Bath className="h-5 w-5 mr-1" />
-                  <span>3 Baths</span>
-                </div>
-                <div className="flex items-center">
-                  <Square className="h-5 w-5 mr-1" />
-                  <span>3,200 sq ft</span>
-                </div>
-                <div className="flex items-center">
-                  <Car className="h-5 w-5 mr-1" />
-                  <span>2 Garage</span>
-                </div>
-              </div>
+          {/* Minimal Image Counter */}
+          <div className="absolute top-6 right-6">
+            <div className="apple-glass text-white px-3 py-1.5 rounded-full text-sm font-medium">
+              {currentImageIndex + 1} of {propertyImages.length}
             </div>
           </div>
 
-          {/* Image Counter */}
-          <div className="absolute top-8 right-8">
-            <div className="bg-black/50 text-white px-3 py-1 rounded-full text-sm">
-              {currentImageIndex + 1} / {propertyImages.length}
+          {/* Property Hero Content */}
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent pt-32">
+            <div className="max-w-6xl mx-auto px-6 pb-12">
+              <div className="max-w-2xl">
+                <div className="flex items-center gap-3 mb-4">
+                  <Badge className="rounded-full bg-white/20 text-white border-0 px-3 py-1 text-sm font-medium">
+                    For Sale
+                  </Badge>
+                  <div className="flex items-center">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                </div>
+                <h1 className="text-5xl font-bold apple-text-display text-white mb-3 leading-tight">
+                  Modern Villa
+                </h1>
+                <p className="text-white/90 text-lg mb-4 apple-text-body flex items-center">
+                  <MapPin className="h-5 w-5 mr-2" />
+                  Beverly Hills, California
+                </p>
+                <div className="text-5xl font-bold apple-text-display text-white mb-6">
+                  $2.75M
+                </div>
+                <div className="flex items-center gap-8 text-white/90">
+                  <div className="flex items-center apple-text-body">
+                    <Bed className="h-5 w-5 mr-2" />
+                    <span>4 Beds</span>
+                  </div>
+                  <div className="flex items-center apple-text-body">
+                    <Bath className="h-5 w-5 mr-2" />
+                    <span>3 Baths</span>
+                  </div>
+                  <div className="flex items-center apple-text-body">
+                    <Square className="h-5 w-5 mr-2" />
+                    <span>3,200 sq ft</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Thumbnail Gallery */}
-        <div className="bg-white border-b border-border p-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex gap-2 overflow-x-auto">
+        {/* Minimal Thumbnail Gallery */}
+        <div className="bg-apple-gray-50 py-6">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="flex gap-3 overflow-x-auto pb-2">
               {propertyImages.map((image, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentImageIndex(index)}
-                  className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                  className={`flex-shrink-0 w-16 h-16 rounded-2xl overflow-hidden transition-all duration-200 ${
                     index === currentImageIndex
-                      ? "border-brand-600"
-                      : "border-border hover:border-brand-300"
+                      ? "ring-2 ring-apple-blue"
+                      : "hover:opacity-75"
                   }`}
                 >
                   <img
@@ -187,221 +180,262 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      {/* Main Content with Apple spacing */}
+      <main className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Property Details */}
-          <div className="lg:col-span-2 space-y-8">
-            <Card>
-              <CardHeader>
-                <CardTitle>Property Description</CardTitle>
-              </CardHeader>
-              <CardContent className="prose prose-brand max-w-none">
-                <p className="text-brand-700 leading-relaxed">
-                  Discover luxury living at its finest in this stunning modern villa. This architectural 
-                  masterpiece seamlessly blends contemporary design with timeless elegance, offering 
-                  breathtaking views and premium finishes throughout.
+          <div className="lg:col-span-2 space-y-12">
+            {/* Description Card */}
+            <div className="bg-white rounded-3xl apple-shadow-lg p-8">
+              <h2 className="text-2xl font-semibold apple-text-display text-black mb-6">
+                About this home
+              </h2>
+              <div className="space-y-6 apple-text-body text-apple-gray-700 leading-relaxed">
+                <p>
+                  Experience luxury living in this stunning modern villa that seamlessly blends 
+                  contemporary architecture with timeless elegance. Every detail has been carefully 
+                  crafted to create an atmosphere of sophistication and comfort.
                 </p>
-                <p className="text-brand-700 leading-relaxed">
-                  The open-concept layout features soaring ceilings, floor-to-ceiling windows, and 
-                  premium hardwood floors. The gourmet kitchen boasts top-of-the-line appliances, 
-                  marble countertops, and a spacious island perfect for entertaining.
+                <p>
+                  The open-concept design features floor-to-ceiling windows that flood the space 
+                  with natural light, premium finishes throughout, and a gourmet kitchen equipped 
+                  with state-of-the-art appliances.
                 </p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card>
-              <CardHeader>
-                <CardTitle>Features & Amenities</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <h4 className="font-semibold text-brand-800">Interior Features</h4>
-                    <ul className="text-brand-600 space-y-1">
-                      <li>• Hardwood floors throughout</li>
-                      <li>• Marble countertops</li>
-                      <li>• Stainless steel appliances</li>
-                      <li>• Walk-in closets</li>
-                      <li>• Central air conditioning</li>
-                    </ul>
-                  </div>
-                  <div className="space-y-2">
-                    <h4 className="font-semibold text-brand-800">Exterior Features</h4>
-                    <ul className="text-brand-600 space-y-1">
-                      <li>• Swimming pool & spa</li>
-                      <li>• Outdoor kitchen</li>
-                      <li>• Landscaped gardens</li>
-                      <li>• 2-car garage</li>
-                      <li>• Security system</li>
-                    </ul>
-                  </div>
+            {/* Features Card */}
+            <div className="bg-white rounded-3xl apple-shadow-lg p-8">
+              <h2 className="text-2xl font-semibold apple-text-display text-black mb-8">
+                What makes this special
+              </h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="font-semibold apple-text-display text-black mb-4">Interior</h3>
+                  <ul className="space-y-3 apple-text-body text-apple-gray-700">
+                    <li className="flex items-center">
+                      <div className="w-2 h-2 bg-apple-blue rounded-full mr-3"></div>
+                      Hardwood floors throughout
+                    </li>
+                    <li className="flex items-center">
+                      <div className="w-2 h-2 bg-apple-blue rounded-full mr-3"></div>
+                      Marble countertops
+                    </li>
+                    <li className="flex items-center">
+                      <div className="w-2 h-2 bg-apple-blue rounded-full mr-3"></div>
+                      Premium appliances
+                    </li>
+                    <li className="flex items-center">
+                      <div className="w-2 h-2 bg-apple-blue rounded-full mr-3"></div>
+                      Central air conditioning
+                    </li>
+                  </ul>
                 </div>
-              </CardContent>
-            </Card>
+                <div>
+                  <h3 className="font-semibold apple-text-display text-black mb-4">Exterior</h3>
+                  <ul className="space-y-3 apple-text-body text-apple-gray-700">
+                    <li className="flex items-center">
+                      <div className="w-2 h-2 bg-apple-blue rounded-full mr-3"></div>
+                      Swimming pool & spa
+                    </li>
+                    <li className="flex items-center">
+                      <div className="w-2 h-2 bg-apple-blue rounded-full mr-3"></div>
+                      Outdoor kitchen
+                    </li>
+                    <li className="flex items-center">
+                      <div className="w-2 h-2 bg-apple-blue rounded-full mr-3"></div>
+                      Landscaped gardens
+                    </li>
+                    <li className="flex items-center">
+                      <div className="w-2 h-2 bg-apple-blue rounded-full mr-3"></div>
+                      Security system
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
 
-            <Card>
-              <CardHeader>
-                <CardTitle>Location & Neighborhood</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-brand-700 mb-4">
-                  Located in the prestigious Beverly Hills area, this property offers easy access to 
-                  world-class shopping, dining, and entertainment venues. The neighborhood is known 
-                  for its tree-lined streets, excellent schools, and luxury amenities.
-                </p>
-                <div className="bg-brand-50 rounded-lg p-4">
-                  <div className="text-center text-brand-600">
-                    Interactive map would be displayed here
-                  </div>
+            {/* Location Card */}
+            <div className="bg-white rounded-3xl apple-shadow-lg p-8">
+              <h2 className="text-2xl font-semibold apple-text-display text-black mb-6">
+                Location
+              </h2>
+              <p className="apple-text-body text-apple-gray-700 leading-relaxed mb-6">
+                Nestled in prestigious Beverly Hills, this property offers unparalleled access to 
+                world-class dining, shopping, and entertainment. The neighborhood is renowned for 
+                its tree-lined streets and luxury amenities.
+              </p>
+              <div className="bg-apple-gray-50 rounded-2xl p-8 text-center">
+                <div className="text-apple-gray-500 apple-text-body">
+                  Interactive map view
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Contact Agent</CardTitle>
-                <CardDescription>
-                  Get in touch to schedule a viewing or ask questions
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleContactSubmit} className="space-y-4">
-                  <div>
-                    <Label htmlFor="name">Full Name</Label>
-                    <Input
-                      id="name"
-                      type="text"
-                      placeholder="Your name"
-                      value={contactForm.name}
-                      onChange={(e) =>
-                        setContactForm({ ...contactForm, name: e.target.value })
-                      }
-                      required
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="your@email.com"
-                      value={contactForm.email}
-                      onChange={(e) =>
-                        setContactForm({ ...contactForm, email: e.target.value })
-                      }
-                      required
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="phone">Phone Number</Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      placeholder="(555) 123-4567"
-                      value={contactForm.phone}
-                      onChange={(e) =>
-                        setContactForm({ ...contactForm, phone: e.target.value })
-                      }
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea
-                      id="message"
-                      placeholder="I'm interested in this property..."
-                      rows={4}
-                      value={contactForm.message}
-                      onChange={(e) =>
-                        setContactForm({ ...contactForm, message: e.target.value })
-                      }
-                      required
-                    />
-                  </div>
-                  <Button type="submit" className="w-full">
-                    Send Message
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Agent Information</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-center space-x-4">
-                  <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center">
-                    <span className="text-2xl">👩‍💼</span>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-brand-900">Sarah Johnson</h3>
-                    <p className="text-brand-600">Senior Real Estate Agent</p>
-                  </div>
+          {/* Contact Sidebar */}
+          <div className="space-y-8">
+            {/* Contact Form */}
+            <div className="bg-white rounded-3xl apple-shadow-lg p-8">
+              <h2 className="text-2xl font-semibold apple-text-display text-black mb-2">
+                Get in touch
+              </h2>
+              <p className="apple-text-body text-apple-gray-600 mb-8">
+                Schedule a viewing or ask questions about this property
+              </p>
+              
+              <form onSubmit={handleContactSubmit} className="space-y-6">
+                <div>
+                  <Label htmlFor="name" className="apple-text-body font-medium text-black">
+                    Name
+                  </Label>
+                  <Input
+                    id="name"
+                    type="text"
+                    placeholder="Your full name"
+                    value={contactForm.name}
+                    onChange={(e) =>
+                      setContactForm({ ...contactForm, name: e.target.value })
+                    }
+                    className="mt-2 rounded-2xl border-apple-gray-300 focus:border-apple-blue focus:ring-apple-blue h-12 px-4 apple-text-body"
+                    required
+                  />
                 </div>
-                <div className="space-y-2">
-                  <div className="flex items-center text-brand-600">
-                    <Phone className="h-4 w-4 mr-2" />
-                    <span>(555) 123-4567</span>
-                  </div>
-                  <div className="flex items-center text-brand-600">
-                    <Mail className="h-4 w-4 mr-2" />
-                    <span>sarah@luxeestate.com</span>
-                  </div>
+                <div>
+                  <Label htmlFor="email" className="apple-text-body font-medium text-black">
+                    Email
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="your@email.com"
+                    value={contactForm.email}
+                    onChange={(e) =>
+                      setContactForm({ ...contactForm, email: e.target.value })
+                    }
+                    className="mt-2 rounded-2xl border-apple-gray-300 focus:border-apple-blue focus:ring-apple-blue h-12 px-4 apple-text-body"
+                    required
+                  />
                 </div>
-                <Button variant="outline" className="w-full">
-                  View Agent Profile
+                <div>
+                  <Label htmlFor="phone" className="apple-text-body font-medium text-black">
+                    Phone
+                  </Label>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    placeholder="(555) 123-4567"
+                    value={contactForm.phone}
+                    onChange={(e) =>
+                      setContactForm({ ...contactForm, phone: e.target.value })
+                    }
+                    className="mt-2 rounded-2xl border-apple-gray-300 focus:border-apple-blue focus:ring-apple-blue h-12 px-4 apple-text-body"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="message" className="apple-text-body font-medium text-black">
+                    Message
+                  </Label>
+                  <Textarea
+                    id="message"
+                    placeholder="I'm interested in this property..."
+                    rows={4}
+                    value={contactForm.message}
+                    onChange={(e) =>
+                      setContactForm({ ...contactForm, message: e.target.value })
+                    }
+                    className="mt-2 rounded-2xl border-apple-gray-300 focus:border-apple-blue focus:ring-apple-blue p-4 apple-text-body resize-none"
+                    required
+                  />
+                </div>
+                <Button 
+                  type="submit" 
+                  className="w-full h-12 rounded-2xl bg-apple-blue hover:bg-apple-blue-dark text-white font-medium apple-text-body"
+                >
+                  Send Message
                 </Button>
-              </CardContent>
-            </Card>
+              </form>
+            </div>
+
+            {/* Agent Card */}
+            <div className="bg-white rounded-3xl apple-shadow-lg p-8">
+              <h2 className="text-xl font-semibold apple-text-display text-black mb-6">
+                Your agent
+              </h2>
+              <div className="flex items-center space-x-4 mb-6">
+                <div className="w-16 h-16 bg-apple-gray-100 rounded-2xl flex items-center justify-center">
+                  <span className="text-2xl">👩‍💼</span>
+                </div>
+                <div>
+                  <h3 className="font-semibold apple-text-display text-black">Sarah Johnson</h3>
+                  <p className="apple-text-body text-apple-gray-600">Real Estate Specialist</p>
+                </div>
+              </div>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-center apple-text-body text-apple-gray-700">
+                  <Phone className="h-4 w-4 mr-3 text-apple-gray-500" />
+                  (555) 123-4567
+                </div>
+                <div className="flex items-center apple-text-body text-apple-gray-700">
+                  <Mail className="h-4 w-4 mr-3 text-apple-gray-500" />
+                  sarah@estate.com
+                </div>
+              </div>
+              <Button 
+                variant="outline" 
+                className="w-full h-12 rounded-2xl border-apple-gray-300 hover:bg-apple-gray-50 apple-text-body font-medium"
+              >
+                View Profile
+              </Button>
+            </div>
           </div>
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-brand-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Minimal Footer */}
+      <footer className="bg-apple-gray-50 py-16">
+        <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-2xl font-bold mb-4">LuxeEstate</h3>
-              <p className="text-brand-300">
-                Your premier destination for luxury real estate in Beverly Hills and beyond.
+              <h3 className="text-xl font-semibold apple-text-display text-black mb-4">Estate</h3>
+              <p className="apple-text-body text-apple-gray-600 leading-relaxed">
+                Premium real estate in the world's most desirable locations.
               </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Services</h4>
-              <ul className="space-y-2 text-brand-300">
-                <li>Buy Properties</li>
-                <li>Sell Properties</li>
-                <li>Property Management</li>
-                <li>Investment Consulting</li>
+              <h4 className="font-semibold apple-text-display text-black mb-4">Services</h4>
+              <ul className="space-y-2 apple-text-body text-apple-gray-600">
+                <li>Buy</li>
+                <li>Sell</li>
+                <li>Rent</li>
+                <li>Invest</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <ul className="space-y-2 text-brand-300">
+              <h4 className="font-semibold apple-text-display text-black mb-4">Contact</h4>
+              <ul className="space-y-2 apple-text-body text-apple-gray-600">
                 <li>(555) 123-4567</li>
-                <li>info@luxeestate.com</li>
+                <li>hello@estate.com</li>
                 <li>Beverly Hills, CA</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Follow Us</h4>
+              <h4 className="font-semibold apple-text-display text-black mb-4">Follow</h4>
               <div className="flex space-x-4">
-                <Button variant="ghost" size="sm" className="text-brand-300 hover:text-white">
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className="apple-text-body text-apple-gray-600 hover:text-black rounded-full"
+                >
                   Instagram
-                </Button>
-                <Button variant="ghost" size="sm" className="text-brand-300 hover:text-white">
-                  Facebook
                 </Button>
               </div>
             </div>
           </div>
-          <div className="border-t border-brand-800 mt-8 pt-8 text-center text-brand-400">
-            <p>&copy; 2024 LuxeEstate. All rights reserved.</p>
+          <div className="border-t border-apple-gray-200 mt-12 pt-8 text-center">
+            <p className="apple-text-body text-apple-gray-500">
+              © 2024 Estate. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>
