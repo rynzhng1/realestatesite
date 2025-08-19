@@ -330,13 +330,17 @@ export default function Index() {
                   Get in touch
                 </h2>
                 {isContactExpanded ? (
-                  <ChevronUp className="h-5 w-5 text-apple-gray-600" />
+                  <ChevronUp className="h-5 w-5 text-apple-gray-600 transition-transform duration-300 ease-in-out" />
                 ) : (
-                  <ChevronDown className="h-5 w-5 text-apple-gray-600" />
+                  <ChevronDown className="h-5 w-5 text-apple-gray-600 transition-transform duration-300 ease-in-out" />
                 )}
               </button>
 
-              {isContactExpanded && (
+              <div
+                className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                  isContactExpanded ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
                 <div className="mt-4">
                   <p className="apple-text-body text-apple-gray-600 mb-6">
                     Schedule a viewing or ask questions about this property
@@ -429,7 +433,7 @@ export default function Index() {
                 </Button>
                   </form>
                 </div>
-              )}
+              </div>
             </div>
 
             {/* Agent Card */}
