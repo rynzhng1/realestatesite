@@ -208,7 +208,7 @@ export default function Index() {
             {/* Features Card */}
             <div className="bg-white rounded-3xl apple-shadow-lg p-8">
               <h2 className="text-2xl font-semibold apple-text-display text-black mb-8">
-                What makes this special
+                Features
               </h2>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
