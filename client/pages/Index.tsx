@@ -25,6 +25,10 @@ import {
   ChevronLeft,
   ChevronRight,
   Star,
+  ChevronDown,
+  ChevronUp,
+  Grid,
+  X,
 } from "lucide-react";
 
 const propertyImages = [
@@ -37,6 +41,8 @@ const propertyImages = [
 
 export default function Index() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isContactExpanded, setIsContactExpanded] = useState(false);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 
   // Auto-cycle through images every 4 seconds
   useEffect(() => {
